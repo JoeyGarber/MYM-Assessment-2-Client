@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import SignIn from './components/sign-in';
 
 function App() {
 
   const [ APODUrl, setAPODUrl ] = useState(null)
   const [ user, setUser ] = useState(null)
+
 
   useEffect(() => {
     // React handles .env files as long as the keys start with REACT_APP
@@ -22,11 +22,12 @@ function App() {
     );
   } else {
     return (
-        <SignIn />
+      <>
+        <p>Please sign in</p>
+        <button onClick={() => window.location.replace('http://localhost:8080/google')}>Click me</button>
+      </>
     )
   }
-
-  
 }
 
 export default App;
