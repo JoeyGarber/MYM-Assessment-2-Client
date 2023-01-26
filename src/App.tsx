@@ -29,7 +29,7 @@ function App() {
 
   useEffect(() => {
     if (!user) {
-      axios.post(apiUrl + '/user', { withCredentials: true })
+      axios.get(apiUrl + '/user', { withCredentials: true })
       .then(response => {
         console.log(response)
         setUser(response.data)
@@ -39,7 +39,7 @@ function App() {
   }, [])
 
   const getUser = () => {
-    axios.post(apiUrl + '/user', { withCredentials: true, responseType: 'json' })
+    axios.get(apiUrl + '/user', { withCredentials: true, responseType: 'json' })
       .then(response => {
         console.log(response.data.json())
         setUser(response.data)
