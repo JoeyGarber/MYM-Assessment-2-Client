@@ -6,7 +6,7 @@ import './App.css';
 let apiUrl: string
 const apiUrls = {
   production: 'https://mym-assessment-2-api-attempt-2.vercel.app',
-  development: 'https://mym-assessment-2-api-attempt-2.vercel.app'
+  development: 'http://localhost:8080'
 }
 
 if (window.location.hostname === 'localhost') {
@@ -29,19 +29,16 @@ function App() {
 
   useEffect(() => {
     if (!user) {
-      axios.get(apiUrl + '/user', { withCredentials: true })
-      .then(response => {
-        console.log(response)
-        setUser(response.data)
-      })
-      .catch(error => console.log(error))
+      getUser()
     }
   }, [])
 
   const getUser = () => {
-    fetch(apiUrl + '/user', { credentials: 'include' })
-      .then(response => response.json())
-      .then(data => console.log(data))
+    axios.get(apiUrl + '/user', { withCredentials: true })
+      .then(response => {
+        console.log(response)
+        setUser(response.data)
+      })
       .catch(error => console.log(error))
   }
 
@@ -56,6 +53,7 @@ function App() {
         {APODUrl && <img src={APODUrl} />}
         <h3>Pretty cool, huh? Nasa, am I right?</h3>
         <button onClick={onLogOut}>Log Out</button>
+        <button onClick={getUser}>Get User</button>
       </div>
     );
   } else {
