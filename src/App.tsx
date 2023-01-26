@@ -2,6 +2,19 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import './App.css';
 
+// I had this broken out into a config file, but it wouldn't import properly
+let apiUrl: string
+const apiUrls = {
+  production: 'mym-assessment-2-kttl2edn4-joeygarber.vercel.app',
+  development: 'http://localhost:4741'
+}
+
+if (window.location.hostname === 'localhost') {
+  apiUrl = apiUrls.development
+} else {
+  apiUrl = apiUrls.production
+}
+
 function App() {
 
   const [ APODUrl, setAPODUrl ] = useState(null)
@@ -16,7 +29,7 @@ function App() {
 
   useEffect(() => {
     if (!user) {
-      axios.get('http://localhost:8080/user', { withCredentials: true })
+      axios.get(apiUrl + '/user', { withCredentials: true })
       .then(response => {
         console.log(response)
         setUser(response.data)
@@ -26,7 +39,7 @@ function App() {
 
   const onLogOut = () => {
     setUser(null)
-    axios.post('http://localhost:8080/logout', {withCredentials: true})
+    axios.post(apiUrl + '/logout', {withCredentials: true})
   }
 
   if (user) {
@@ -41,7 +54,7 @@ function App() {
     return (
       <div className='sign-in'>
         <h3>Sign In with Google to See Today's Cool Space Image</h3>
-        <button onClick={() => window.location.assign('http://localhost:8080/google')}>Sign In</button>
+        <button onClick={() => window.location.assign(apiUrl + '/google')}>Sign In</button>
       </div>
     )
   }
