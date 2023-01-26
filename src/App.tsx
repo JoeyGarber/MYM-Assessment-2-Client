@@ -44,7 +44,7 @@ function App() {
         console.log(response)
         setUser(response.data)
       })
-      .then(error => console.log(error))
+      .catch(error => console.log(error))
   }
 
   const onLogOut = () => {
