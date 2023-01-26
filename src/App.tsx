@@ -34,12 +34,13 @@ function App() {
         console.log(response)
         setUser(response.data)
       })
+      .then(error => console.log(error))
     }
   }, [])
 
   const onLogOut = () => {
     setUser(null)
-    axios.post(apiUrl + '/logout', {withCredentials: true})
+    axios.post(apiUrl + '/logout', { withCredentials: true })
   }
 
   if (user) {
