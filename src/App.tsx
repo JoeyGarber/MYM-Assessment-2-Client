@@ -39,10 +39,9 @@ function App() {
   }, [])
 
   const getUser = () => {
-    axios.get(apiUrl + '/user', { withCredentials: true, responseType: 'json' })
+    fetch(apiUrl + '/user', { credentials: 'include' })
       .then(response => {
-        console.log(response.data.json())
-        setUser(response.data)
+        console.log(response)
       })
       .catch(error => console.log(error))
   }
