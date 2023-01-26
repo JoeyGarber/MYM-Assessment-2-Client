@@ -38,6 +38,15 @@ function App() {
     }
   }, [])
 
+  const getUser = () => {
+    axios.get(apiUrl + '/user', { withCredentials: true })
+      .then(response => {
+        console.log(response)
+        setUser(response.data)
+      })
+      .then(error => console.log(error))
+  }
+
   const onLogOut = () => {
     setUser(null)
     axios.post(apiUrl + '/logout', { withCredentials: true })
@@ -56,6 +65,8 @@ function App() {
       <div className='sign-in'>
         <h3>Sign In with Google to See Today's Cool Space Image</h3>
         <button onClick={() => window.location.assign(apiUrl + '/google')}>Sign In</button>
+        <p>Maybe this will show me if it's a useEffect problem or a Axios problem</p>
+        <button onClick={getUser}>Get User</button>
       </div>
     )
   }
