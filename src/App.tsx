@@ -5,8 +5,8 @@ import './App.css';
 // I had this broken out into a config file, but it wouldn't import properly
 let apiUrl: string
 const apiUrls = {
-  production: 'mym-assessment-2-kttl2edn4-joeygarber.vercel.app',
-  development: 'http://localhost:4741'
+  production: 'https://mym-assessment-2-api-attempt-2.vercel.app',
+  development: 'https://mym-assessment-2-api-attempt-2.vercel.app'
 }
 
 if (window.location.hostname === 'localhost') {
