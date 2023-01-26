@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MYM-Assessment-2-Client/static/css/main.11b6cc5d.css",
+    "main.js": "/MYM-Assessment-2-Client/static/js/main.aff46bd7.js",
+    "static/js/787.42f0e14d.chunk.js": "/MYM-Assessment-2-Client/static/js/787.42f0e14d.chunk.js",
+    "index.html": "/MYM-Assessment-2-Client/index.html",
+    "main.11b6cc5d.css.map": "/MYM-Assessment-2-Client/static/css/main.11b6cc5d.css.map",
+    "main.aff46bd7.js.map": "/MYM-Assessment-2-Client/static/js/main.aff46bd7.js.map",
+    "787.42f0e14d.chunk.js.map": "/MYM-Assessment-2-Client/static/js/787.42f0e14d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11b6cc5d.css",
+    "static/js/main.aff46bd7.js"
+  ]
+}
